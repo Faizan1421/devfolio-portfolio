@@ -10,16 +10,16 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
   if (classes) {
     additionalClasses = classes;
   }
-
-  const options = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-    gyroscope: false,
-  };
-
+ 
   useEffect(() => {
+    const options = {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      gyroscope: false,
+    };
+  
     VanillaTilt.init(projectCard.current, options);
   }, [projectCard]);
 
@@ -42,7 +42,9 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
         }}
       >
-        <img
+        <Image
+           width={608}
+           height={400}
           src="/project-bg.svg"
           alt="project"
           className="absolute w-full h-full top-0 left-0 object-cover opacity-30"
@@ -80,7 +82,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
         >
           <div className="flex flex-col pb-8">
             {project.tech.map((el, i) => (
-              <img
+              <Image
                 className={`${i % 2 === 0 && "ml-16"} mb-4`}
                 src={`/projects/tech/${el}.svg`}
                 alt={el}
